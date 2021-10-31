@@ -51,7 +51,8 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <!--留意layout_scrollFlags里面的属性，以及tabMode的属性-->
+        <!--留意layout_scrollFlags里面的属性!-->
+        <!--留意tabMode属性，这个属性可以使得tab太多的时候可以水平滑动tab, 来选择不同的tab!-->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
