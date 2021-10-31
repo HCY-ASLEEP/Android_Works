@@ -25,6 +25,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    //注意这一句话了哈，这一句话就说明了可以使用 binding!
     buildFeatures {
         viewBinding true
     }

@@ -5,12 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+    <!--注意这里的布局，这里的布局关键是appbarLayout，nestedScrollView，toolbar，tabLayout，viewPager的搭配，这样子才可以实现向上隐藏的功能-->
+    <!--这些搭配的根部局必需是CoordinatorLayout！-->
+    <!--这里的滚动隐藏有几个需要标出来的属性-->
+    <!--toolbar有一个，tabLayout里面有两个，nestedScrollView里面有一个-->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.MY_WORK.AppBarOverlay">
-
+        <!--注意这里的layout_scrollFlags属性，这个属性说明了可以向上滚动可以隐藏Toolbar-->
+        <!--留意layout_scrollFlags里面的属性，这里的属性说明向上可以隐藏，隐藏的时候只要触发了向下的手势就会出现，而不需要回到顶部再出现-->
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,6 +51,7 @@
 
         </androidx.appcompat.widget.Toolbar>
 
+        <!--留意layout_scrollFlags里面的属性，以及tabMode的属性-->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
@@ -55,6 +60,8 @@
             app:layout_scrollFlags="snap|scroll|enterAlways"/>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!--留意这里的layout_behavior属性，这个才可以是的nestedScrollView可以联动隐藏-->
+    <!--更加需要留意的是这里的fillViewPort属性，这样子nestedScrollView里面的view内容才可以显示出来！-->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -63,8 +70,7 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:layout_height="match_parent" />
     </androidx.core.widget.NestedScrollView>
 
 
